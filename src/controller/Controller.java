@@ -74,9 +74,13 @@ public class Controller {
 					{
 						view.printMessage("Dato eliminado "+ respuesta);
 					}
-					else
+					else if (modelo.darDatos().darTamano()==0)
 					{
 						view.printMessage("Dato NO eliminado");							
+					}
+					else if (respuesta==null)
+					{
+						view.printMessage("No se puede eliminar el elemento porque no existe en el arreglo");
 					}
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;
