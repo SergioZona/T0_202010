@@ -7,7 +7,7 @@ import model.data_structures.IArregloDinamico;
  * Definicion del modelo del mundo
  *
  */
-public class Modelo {
+public class Modelo <T extends Comparable<T>> implements Comparable<Integer> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
@@ -43,7 +43,7 @@ public class Modelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(String dato)
+	public void agregar(int dato)
 	{	
 		datos.agregar(dato);
 	}
@@ -53,9 +53,9 @@ public class Modelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public String buscar(String dato)
+	public T buscar(int dato)
 	{
-		return datos.buscar(dato);
+		return (T) datos.buscar(dato);
 	}
 	
 	/**
@@ -63,9 +63,23 @@ public class Modelo {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public String eliminar(String dato)
+	public T eliminar(int dato)
 	{
-		return datos.eliminar(dato);
+		return (T) datos.eliminar(dato);
+	}
+	
+	/**
+	 * Retorna el arreglo dinámico de datos
+	 */
+	public IArregloDinamico darDatos()
+	{
+		return datos;
+	}
+
+	@Override
+	public int compareTo(Integer arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 
